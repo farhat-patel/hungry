@@ -24,7 +24,7 @@ const Header = () => {
             <Link to="/home">Home</Link>
           </li>
           <li className="px-4 text-xl">
-            <Link to="/favourites">Favourites</Link>
+            <Link to="/favourites">Favourite</Link>
           </li>
         </ul>
       </div>
