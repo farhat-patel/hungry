@@ -4,7 +4,6 @@ import logo from "../images/HungryLogo.png";
 const Header = () => {
   return (
     <div className="flex justify-between items-center">
-
       <div>
         <img className="w-40" src={logo} alt="TheHungryExplorerLogo" />
       </div>
@@ -24,11 +23,10 @@ const Header = () => {
             <Link to="/home">Home</Link>
           </li>
           <li className="px-4 text-xl">
-            <Link to="/favourites">Favourite</Link>
+            <Link to="/favourites">Favourites</Link>
           </li>
         </ul>
       </div>
-
     </div>
   );
 };
