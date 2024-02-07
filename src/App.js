@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Favourites from "./components/Favourites";
 import Body from "./components/Body";
+import Recipe from "./components/Recipe";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Body />} />
         <Route path="/home" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
+        <Route path="/recipe" element={<Recipe />} />
       </Routes>
     </Router>
   );

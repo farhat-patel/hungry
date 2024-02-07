@@ -1,7 +1,10 @@
+//import Body from "./Body";
+import Search from "./Search";
+
 const Home = () => {
   return (
     <div>
-      <h1>Home Component</h1>
+      <Search />
     </div>
   );
 };

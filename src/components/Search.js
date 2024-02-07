@@ -1,31 +1,26 @@
-//import FryingPan from "./FryingPan";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Body = () => {
-  const [foodItems, setFoodItems] = useState([]);
+const Search = () => {
+  const [foodMeals, setFoodMeals] = useState([]);
 
-  useEffect(function abc() {
-    fetchData();
+  useEffect(() => {
+    fetchFoodData();
   }, []);
 
-  const fetchData = async () => {
+  const fetchFoodData = async () => {
     const data = await fetch(
-      "https://www.themealdb.com/api/json/v1/1/search.php?s="
+      "https://www.themealdb.com/api/json/v1/1/search.php?f=b"
     );
-    //console.log(data);
     const jsonData = await data.json();
     console.log(jsonData);
-    setFoodItems(jsonData.meals);
+    setFoodMeals(jsonData.meals);
   };
 
   return (
     <div className="body">
-      {/* <p className="text-2xl lg:text-4xl text-center font-semibold p-20">
-        Nothing to show, please search anything!
-      </p>
-      <FryingPan /> */}
       <div className="flex flex-wrap gap-5">
-        {foodItems.map((res) => {
+        {foodMeals.map((res) => {
           return (
             <div
               key={res.idMeal}
@@ -35,6 +30,12 @@ const Body = () => {
               <h1 className="font-bold">{res.strMeal}</h1>
               <h1>Category: {res.strCategory}</h1>
               <h1>Area: {res.strArea}</h1>
+              <Link
+                to="/recipe"
+                className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300"
+              >
+                View Recipe
+              </Link>
             </div>
           );
         })}
@@ -43,4 +44,4 @@ const Body = () => {
   );
 };
 
-export default Body;
+export default Search;
