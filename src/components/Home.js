@@ -1,10 +1,10 @@
-//import Body from "./Body";
-import Search from "./Search";
+import Body from "./Body";
+//import Search from "./Search";
 
 const Home = () => {
   return (
     <div>
-      <Search />
+      <Body />
     </div>
   );
 };
