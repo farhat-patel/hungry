@@ -33,7 +33,7 @@ const Body = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center bg-rose-100">
         <div>
           {/* <img className="w-40" src={logo} alt="TheHungryExplorerLogo" /> */}
           <h2 className="text-2xl font-bold italic m-2">
@@ -80,7 +80,7 @@ const Body = () => {
       ) : meals && meals.length > 0 ? (
         <Meal meals={meals} />
       ) : (
-        <div className="flex flex-wrap gap-5">
+        <div className="flex flex-wrap gap-5 bg-rose-100">
           {foodItems.map((res) => {
             return (
               <div
@@ -91,6 +91,12 @@ const Body = () => {
                 <h1 className="font-bold">{res.strMeal}</h1>
                 <h1>Category: {res.strCategory}</h1>
                 <h1>Area: {res.strArea}</h1>
+                <Link
+                  to={"/recipe/" + res.idMeal}
+                  className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300"
+                >
+                  View Recipe
+                </Link>
               </div>
             );
           })}

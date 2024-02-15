@@ -33,7 +33,7 @@ const Recipe = () => {
       {!recipe ? (
         ""
       ) : (
-        <div>
+        <div className="bg-rose-100">
           {recipe.map((res) => {
             return (
               <div key={res.idMeal}>
@@ -46,39 +46,39 @@ const Recipe = () => {
                 <div className="bg-white bg-opacity-80 text-black text-center text-lg p-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md">
                   <h1>{res.strMeal}</h1>
                   <h2>{res.strArea} Food</h2>
-                  <h3>Category {res.strCategory}</h3>
+                  <h3>Category: {res.strCategory}</h3>
                 </div>
-                <div className="w-70 mx-auto flex justify-between items-center">
-                  <div className="flex-1 text-justify mt-6 font-bold p-2">
-                    <h2>Ingredients</h2>
+                <div className="w-70 mx-auto flex">
+                  <div className="flex-1 text-justify mt-6 p-2 pl-10">
+                    <h2 className="font-bold">INGREDIENTS:</h2>
                     <br />
                     <h4>
-                      {res.strIngredient1}:{res.strMeasure1}
+                      <b>{res.strIngredient1}</b>: {res.strMeasure1}
                     </h4>
                     <h4>
-                      {res.strIngredient2}:{res.strMeasure2}
+                      <b>{res.strIngredient2}</b>: {res.strMeasure2}
                     </h4>
                     <h4>
-                      {res.strIngredient3}:{res.strMeasure3}
+                      <b>{res.strIngredient3}</b>: {res.strMeasure3}
                     </h4>
                     <h4>
-                      {res.strIngredient4}:{res.strMeasure4}
+                      <b>{res.strIngredient4}</b>: {res.strMeasure4}
                     </h4>
                     <h4>
-                      {res.strIngredient5}:{res.strMeasure5}
+                      <b>{res.strIngredient5}</b>: {res.strMeasure5}
                     </h4>
                     <h4>
-                      {res.strIngredient6}:{res.strMeasure6}
+                      <b>{res.strIngredient6}</b>: {res.strMeasure6}
                     </h4>
                     <h4>
-                      {res.strIngredient7}:{res.strMeasure7}
+                      <b>{res.strIngredient7}</b>: {res.strMeasure7}
                     </h4>
                     <h4>
-                      {res.strIngredient8}:{res.strMeasure8}
+                      <b>{res.strIngredient8}</b>: {res.strMeasure8}
                     </h4>
                   </div>
-                  <div className="flex-1 text-justify">
-                    <h2>Instructions</h2>
+                  <div className="flex-1 text-justify py-6 pr-10">
+                    <h2 className="font-bold">INSTRUCTIONS:</h2>
                     <br />
                     <h4>{res.strInstructions}</h4>
                   </div>
