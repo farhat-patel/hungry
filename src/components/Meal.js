@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Meal = ({ meals }) => {
   return (
     <div className="flex flex-wrap gap-5">
@@ -11,9 +13,12 @@ const Meal = ({ meals }) => {
             <h1 className="font-bold">{res.strMeal}</h1>
             <h1>Category: {res.strCategory}</h1>
             <h1>Area: {res.strArea}</h1>
-            <button className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300">
+            <Link
+              to={"/recipe/" + res.idMeal}
+              className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300"
+            >
               View Recipe
-            </button>
+            </Link>
           </div>
         );
       })}

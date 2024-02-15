@@ -1,4 +1,4 @@
-//import FryingPan from "./FryingPan";
+import FryingPan from "./FryingPan";
 import { useState, useEffect } from "react";
 import Meal from "./Meal";
 import { Link } from "react-router-dom";
@@ -72,12 +72,12 @@ const Body = () => {
         </div>
       </div>
 
-      {/* <p className="text-2xl lg:text-4xl text-center font-semibold p-20">
-        Nothing to show, please search anything!
-      </p>
-      <FryingPan /> */}
-
-      {meals.length > 0 ? (
+      {meals === null ? (
+        <div className="text-2xl lg:text-4xl text-center font-semibold p-20">
+          Nothing to show, please search something else!
+          <FryingPan />
+        </div>
+      ) : meals && meals.length > 0 ? (
         <Meal meals={meals} />
       ) : (
         <div className="flex flex-wrap gap-5">
@@ -91,9 +91,6 @@ const Body = () => {
                 <h1 className="font-bold">{res.strMeal}</h1>
                 <h1>Category: {res.strCategory}</h1>
                 <h1>Area: {res.strArea}</h1>
-                <button className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300">
-                  View Recipe
-                </button>
               </div>
             );
           })}
