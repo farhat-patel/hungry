@@ -80,7 +80,7 @@ const Body = () => {
           foodItems.map((res) => (
             <div
               key={res.idMeal}
-              className="m-4 p-4 w-[250px] rounded-lg bg-gray-200 hover:bg-slate-300 "
+              className="m-4 p-4 w-[250px] rounded-lg bg-gray-200 hover:bg-slate-300"
             >
               <img src={res.strMealThumb} alt="Food Images" />
               <h1 className="font-bold">{res.strMeal}</h1>

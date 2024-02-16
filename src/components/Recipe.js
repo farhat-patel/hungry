@@ -46,20 +46,30 @@ const Recipe = () => {
                 <div className="flex-1 text-justify mt-6 p-2 pl-10">
                   <h2 className="font-bold">INGREDIENTS:</h2>
                   <br />
-                  {/* Render ingredients and measures */}
-                  {Array.from({ length: 20 }, (_, i) => i + 1).map((index) => {
-                    const ingredient = res[`strIngredient${index}`];
-                    const measure = res[`strMeasure${index}`];
-                    if (ingredient && measure) {
-                      return (
-                        <h4 key={index}>
-                          <b>{ingredient}</b>: {measure}
-                        </h4>
-                      );
-                    } else {
-                      return null;
-                    }
-                  })}
+                  <h4>
+                    <b>{res.strIngredient1}</b>- {res.strMeasure1}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient2}</b>- {res.strMeasure2}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient3}</b>- {res.strMeasure3}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient4}</b>- {res.strMeasure4}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient5}</b>- {res.strMeasure5}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient6}</b>- {res.strMeasure6}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient7}</b>- {res.strMeasure7}
+                  </h4>
+                  <h4>
+                    <b>{res.strIngredient8}</b>- {res.strMeasure8}
+                  </h4>
                 </div>
                 <div className="flex-1 text-justify py-6 pr-10">
                   <h2 className="font-bold">INSTRUCTIONS:</h2>
@@ -73,7 +83,9 @@ const Recipe = () => {
                     width="100%"
                     height="515"
                     title="recipeVideo"
-                    src={`https://www.youtube.com/embed/${getVideoId(res.strYoutube)}`}
+                    src={`https://www.youtube.com/embed/${getVideoId(
+                      res.strYoutube
+                    )}`}
                   ></iframe>
                 )}
               </div>
