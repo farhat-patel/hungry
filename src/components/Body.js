@@ -16,9 +16,7 @@ const Body = () => {
     const data = await fetch(
       "https://www.themealdb.com/api/json/v1/1/search.php?s="
     );
-    //console.log(data);
     const jsonData = await data.json();
-    console.log(jsonData);
     setFoodItems(jsonData.meals);
   };
 
@@ -27,7 +25,6 @@ const Body = () => {
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
     );
     const jsonData = await data.json();
-    console.log(jsonData);
     setMeals(jsonData.meals);
   };
 
@@ -35,7 +32,6 @@ const Body = () => {
     <>
       <div className="flex justify-between items-center bg-rose-100">
         <div>
-          {/* <img className="w-40" src={logo} alt="TheHungryExplorerLogo" /> */}
           <h2 className="text-2xl font-bold italic m-2">
             TheHungry<span className="text-rose-500">Explorer</span>
           </h2>
@@ -72,36 +68,34 @@ const Body = () => {
         </div>
       </div>
 
-      {meals === null ? (
-        <div className="text-2xl lg:text-4xl text-center font-semibold p-20">
-          Nothing to show, please search something else!
-          <FryingPan />
-        </div>
-      ) : meals && meals.length > 0 ? (
-        <Meal meals={meals} />
-      ) : (
-        <div className="flex flex-wrap gap-5 bg-rose-100">
-          {foodItems.map((res) => {
-            return (
-              <div
-                key={res.idMeal}
-                className="m-4 p-4 w-[250px] rounded-lg bg-gray-200 hover:bg-slate-300"
+      <div className="flex flex-wrap justify-center gap-5 bg-rose-100 min-h-screen">
+        {meals === null ? (
+          <div className="text-2xl lg:text-4xl font-semibold p-20">
+            Nothing to show, please search something else!
+            <FryingPan />
+          </div>
+        ) : meals && meals.length > 0 ? (
+          <Meal meals={meals} />
+        ) : (
+          foodItems.map((res) => (
+            <div
+              key={res.idMeal}
+              className="m-4 p-4 w-[250px] rounded-lg bg-gray-200 hover:bg-slate-300 "
+            >
+              <img src={res.strMealThumb} alt="Food Images" />
+              <h1 className="font-bold">{res.strMeal}</h1>
+              <h1>Category: {res.strCategory}</h1>
+              <h1>Area: {res.strArea}</h1>
+              <Link
+                to={"/recipe/" + res.idMeal}
+                className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300"
               >
-                <img src={res.strMealThumb} alt="Food Images" />
-                <h1 className="font-bold">{res.strMeal}</h1>
-                <h1>Category: {res.strCategory}</h1>
-                <h1>Area: {res.strArea}</h1>
-                <Link
-                  to={"/recipe/" + res.idMeal}
-                  className="bg-gradient-to-br from-rose-400 to-rose-600 text-rose-50 p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-2 inline-block shadow-md shadow-rose-200 hover:shadow-lg hover:shadow-rose-300 duration-300"
-                >
-                  View Recipe
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-      )}
+                View Recipe
+              </Link>
+            </div>
+          ))
+        )}
+      </div>
     </>
   );
 };
