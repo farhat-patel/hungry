@@ -61,9 +61,9 @@ const Body = () => {
             <li className="px-4 text-xl">
               <Link to="/home">Home</Link>
             </li>
-            <li className="px-4 text-xl">
+            {/* <li className="px-4 text-xl">
               <Link to="/favourites">Favourites</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
